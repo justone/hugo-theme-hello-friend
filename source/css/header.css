@@ -38,6 +38,15 @@
   cursor: pointer;
 }
 
+.rss-icon {
+  padding-left: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  cursor: pointer;
+}
+
 .theme-toggler {
   fill: currentColor;
 }
