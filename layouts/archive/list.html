@@ -1,15 +1,15 @@
 {{ define "main" }}
 
-{{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "posts") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
-{{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
+{{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "post") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
+{{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "post" }}
 
 <div class="archive">
   <h1>{{ .Title }}</h1>
-  {{ range $index, $value := (where .Site.RegularPages "Type" "posts").GroupByPublishDate "2006" }}
+  {{ range $index, $value := (where .Site.RegularPages "Type" "post").GroupByPublishDate "2006" }}
   {{ if ne .Key "0001" }}
   <div class="archive__group-year">
     <h2 class="archive__group-year-header">{{ replace .Key "0001" "" }}</h2>
-    {{ range $index, $value := (where .Pages "Type" "posts").GroupByDate "January" }}
+    {{ range $index, $value := (where .Pages "Type" "post").GroupByDate "January" }}
     <div class="archive__group-month">
       <h3 class="archive__group-month-header">{{ .Key }}</h3>
       <div class="archive__group-posts">
